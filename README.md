@@ -1,0 +1,1 @@
+This a go-to platform for the electric vehicle users to locate their nearest charging stations. It also provides efficient booking system to the users. One of the most anticipated feature of this application is that the users will be able to plan their trips priorly.
