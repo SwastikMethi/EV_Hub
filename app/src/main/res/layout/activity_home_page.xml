@@ -6,6 +6,52 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity_HomePage">
+    tools:context=".Activity_HomePage"
+    android:background="#E4E4E4">
 
+<include
+    android:id="@+id/nav_bar"
+    layout="@layout/nav_bar"
+    />
+  <ImageButton
+      android:id="@+id/reserve_dock"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:src="@drawable/reserve_dock"
+      app:layout_constraintBottom_toTopOf="@id/nav_bar"
+      app:layout_constraintLeft_toLeftOf="@id/nav_bar"
+      android:background="?attr/selectableItemBackgroundBorderless"
+      android:layout_marginBottom="20dp"
+      />
+
+  <ImageButton
+      android:id="@+id/register_car"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:src="@drawable/register_car"
+      app:layout_constraintBottom_toTopOf="@id/nav_bar"
+      app:layout_constraintRight_toRightOf="@id/nav_bar"
+        android:layout_marginBottom="20dp"
+      android:background="?attr/selectableItemBackgroundBorderless"
+        />
+  <ImageButton
+      android:id="@+id/select_ev"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:src="@drawable/select_ev"
+      app:layout_constraintBottom_toTopOf="@id/register_car"
+      app:layout_constraintRight_toRightOf="@id/register_car"
+      android:background="?attr/selectableItemBackgroundBorderless"
+      android:layout_marginBottom="20dp"
+        />
+  <ImageButton
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:src="@drawable/closest_station"
+      app:layout_constraintBottom_toTopOf="@id/reserve_dock"
+      android:background="?attr/selectableItemBackgroundBorderless"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent"
+      android:layout_marginBottom="20dp"
+      />
   </androidx.constraintlayout.widget.ConstraintLayout>

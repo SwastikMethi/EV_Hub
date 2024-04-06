@@ -35,30 +35,60 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/signup"
         />
+
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/user_profile"
+        android:scaleType="fitCenter"
         android:src="@drawable/user_profile"
         android:background="?attr/selectableItemBackgroundBorderless"
         app:layout_constraintTop_toBottomOf="@id/as"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="25dp"
+        android:layout_marginLeft="15dp"
         android:layout_marginTop="50dp"
         />
 
+
     <ImageButton
+        android:id="@+id/company_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/company"
         android:background="?attr/selectableItemBackgroundBorderless"
         app:layout_constraintTop_toBottomOf="@id/as"
-        app:layout_constraintLeft_toRightOf="@id/user_profile"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="20dp"
         android:layout_marginTop="50dp"
         android:layout_marginRight="15dp"
         />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleY="0.67"
+        android:scaleX="0.67"
+        android:src="@drawable/management"
+        app:layout_constraintRight_toRightOf="@id/company_profile"
+        app:layout_constraintLeft_toLeftOf="@id/company_profile"
+        app:layout_constraintBottom_toBottomOf="@id/company_profile"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:layout_marginBottom="73dp"
+        android:layout_marginLeft="6dp"
+        />
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleY="0.65"
+        android:scaleX="0.65"
+        android:src="@drawable/single_account"
+        app:layout_constraintRight_toRightOf="@id/user_profile"
+        app:layout_constraintLeft_toLeftOf="@id/user_profile"
+        app:layout_constraintBottom_toBottomOf="@id/user_profile"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:layout_marginBottom="72dp"
+
+        />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
