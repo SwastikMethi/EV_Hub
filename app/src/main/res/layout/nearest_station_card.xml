@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    android:background="@drawable/nearest_card_color">
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/map_cutpiece"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:adjustViewBounds="true"
+        android:maxWidth="183dp"
+        android:maxHeight="183dp"
+        android:layout_marginRight="4dp"
+        android:padding="3dp"
+        />
+    <TextView
+        android:id="@+id/closest_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/baloo"
+        android:text="Find nearest "
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="21dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/img"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        />
+    <TextView
+        android:id="@+id/charging_station"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/baloo"
+        app:layout_constraintTop_toBottomOf="@id/closest_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="charging station "
+        android:textColor="@color/black"
+        android:textSize="21dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="-6dp"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:text="Get Location"
+        android:textAllCaps="false"
+        android:textSize="16dp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/average_sans"
+        android:background="@drawable/button_02"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/charging_station"
+        android:layout_marginLeft="10dp"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
