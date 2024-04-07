@@ -37,16 +37,16 @@
         />
 
     <ImageButton
+        android:id="@+id/user_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/user_profile"
+        android:layout_marginTop="50dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:scaleType="fitCenter"
         android:src="@drawable/user_profile"
-        android:background="?attr/selectableItemBackgroundBorderless"
         app:layout_constraintTop_toBottomOf="@id/as"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="50dp"
+        app:layout_constraintRight_toRightOf="@id/middle"
         />
 
 
@@ -54,13 +54,12 @@
         android:id="@+id/company_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/company"
+        android:layout_marginTop="50dp"
         android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/company"
         app:layout_constraintTop_toBottomOf="@id/as"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="50dp"
-        android:layout_marginRight="15dp"
-        />
+        app:layout_constraintLeft_toLeftOf="@id/middle"/>
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -129,6 +128,12 @@
         android:shadowColor="@color/black"
         android:clickable="true"/>
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/middle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.5"
+        android:orientation="vertical"/>
 
 
 

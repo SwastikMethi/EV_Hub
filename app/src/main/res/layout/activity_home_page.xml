@@ -19,8 +19,9 @@
       android:layout_height="wrap_content"
       android:src="@drawable/reserve_dock"
       app:layout_constraintBottom_toTopOf="@id/nav_bar"
-      app:layout_constraintLeft_toLeftOf="@id/nav_bar"
+      app:layout_constraintLeft_toLeftOf="parent"
       android:background="?attr/selectableItemBackgroundBorderless"
+      app:layout_constraintRight_toLeftOf="@id/guideline"
       android:layout_marginBottom="20dp"
       />
 
@@ -30,7 +31,8 @@
       android:layout_height="wrap_content"
       android:src="@drawable/register_car"
       app:layout_constraintBottom_toTopOf="@id/nav_bar"
-      app:layout_constraintRight_toRightOf="@id/nav_bar"
+      app:layout_constraintLeft_toRightOf="@id/guideline"
+      app:layout_constraintRight_toRightOf="parent"
         android:layout_marginBottom="20dp"
       android:background="?attr/selectableItemBackgroundBorderless"
         />
@@ -40,18 +42,99 @@
       android:layout_height="wrap_content"
       android:src="@drawable/select_ev"
       app:layout_constraintBottom_toTopOf="@id/register_car"
-      app:layout_constraintRight_toRightOf="@id/register_car"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintLeft_toRightOf="@id/guideline"
       android:background="?attr/selectableItemBackgroundBorderless"
-      android:layout_marginBottom="20dp"
+      android:layout_marginBottom="15dp"
         />
+
   <ImageButton
+      android:id="@+id/closest"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:src="@drawable/closest_station"
-      app:layout_constraintBottom_toTopOf="@id/reserve_dock"
+      app:layout_constraintBottom_toTopOf="@id/select_ev"
       android:background="?attr/selectableItemBackgroundBorderless"
       app:layout_constraintRight_toRightOf="parent"
       app:layout_constraintLeft_toLeftOf="parent"
       android:layout_marginBottom="20dp"
       />
-  </androidx.constraintlayout.widget.ConstraintLayout>
+
+  <TextView
+      android:id="@+id/closest_text"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:fontFamily="@font/baloo"
+      android:text="Find nearest "
+      android:textAlignment="center"
+      android:textColor="@color/black"
+      android:textSize="23dp"
+      app:layout_constraintLeft_toLeftOf="@id/closest"
+      app:layout_constraintTop_toTopOf="@id/closest"
+      android:layout_marginLeft="10dp"
+        android:layout_marginTop="4dp"
+      />
+
+  <TextView
+      android:id="@+id/charging_station"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:fontFamily="@font/baloo"
+      android:text="charging station "
+      android:textAlignment="center"
+      android:textColor="@color/black"
+      android:textSize="23dp"
+      app:layout_constraintLeft_toLeftOf="@id/closest"
+      app:layout_constraintTop_toBottomOf="@id/closest_text"
+      android:layout_marginLeft="10dp"
+      android:layout_marginTop="-6dp"
+      />
+
+  <androidx.appcompat.widget.AppCompatButton
+      android:layout_width="170dp"
+      android:layout_height="30dp"
+      android:text="Get Location"
+      android:textSize="16dp"
+      android:textStyle="normal"
+      android:textColor="@color/white"
+      android:fontFamily="@font/average_sans"
+      android:background="@drawable/button_02"
+      app:layout_constraintLeft_toLeftOf="@id/closest"
+      app:layout_constraintTop_toBottomOf="@id/charging_station"
+      android:layout_marginLeft="10dp"
+        android:layout_marginTop="8dp"
+      />
+
+<!--  <ImageButton-->
+<!--      android:id="@+id/get_location"-->
+<!--      android:layout_width="wrap_content"-->
+<!--      android:layout_height="wrap_content"-->
+<!--      android:src="@drawable/get_location_btn"-->
+<!--      android:background="?attr/selectableItemBackgroundBorderless"-->
+<!--      app:layout_constraintTop_toBottomOf="@+id/charging_station"-->
+<!--      app:layout_constraintLeft_toLeftOf="@+id/closest"-->
+<!--      android:layout_marginTop="9dp"-->
+<!--      android:layout_marginLeft="10dp"-->
+<!--      />-->
+
+<!--  <TextView-->
+<!--      android:layout_width="wrap_content"-->
+<!--      android:layout_height="wrap_content"-->
+<!--      android:fontFamily="@font/average_sans"-->
+<!--      android:text="Get Location"-->
+<!--      android:textColor="@color/white"-->
+<!--      android:textSize="16dp"-->
+<!--      android:textStyle="bold"-->
+<!--      app:layout_constraintBottom_toBottomOf="@id/get_location"-->
+<!--      app:layout_constraintLeft_toLeftOf="@id/get_location"-->
+<!--      app:layout_constraintTop_toTopOf="@id/get_location"-->
+<!--      app:layout_constraintRight_toRightOf="@id/get_location"/>-->
+
+  <androidx.constraintlayout.widget.Guideline
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintGuide_percent="0.43"
+      android:id="@+id/guideline"
+      android:orientation="vertical"
+      />
+</androidx.constraintlayout.widget.ConstraintLayout>
