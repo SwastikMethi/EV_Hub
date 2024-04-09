@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.androidApplication)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -65,6 +66,9 @@ buildscript {
     }
 }
 dependencies {
-    implementation("com.google.android.gms:play-services-maps:18.0.1")
+    implementation(libs.firebase.auth)
+    implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
+    implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.android.gms:play-services-location:21.2.0")
+    implementation("androidx.cardview:cardview:1.0.0")
 }

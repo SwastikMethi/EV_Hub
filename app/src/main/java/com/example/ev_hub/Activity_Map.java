@@ -52,7 +52,7 @@ public class Activity_Map extends AppCompatActivity implements OnMapReadyCallbac
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
+//        // searching in maps
         searchView = findViewById(R.id.search_view);
 
 

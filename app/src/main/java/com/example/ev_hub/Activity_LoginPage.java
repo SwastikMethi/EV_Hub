@@ -28,5 +28,23 @@ public class Activity_LoginPage extends AppCompatActivity {
             Intent intent = new Intent(Activity_LoginPage.this,Activity_HomePage.class);
             startActivity(intent);
         } );
+
+        TextView login = findViewById(R.id.login);
+        login.setOnClickListener(view ->{
+            Intent intent = new Intent(Activity_LoginPage.this,Activity_Individual_login.class);
+            startActivity(intent);
+        } );
+
+        ImageButton user_profile = findViewById(R.id.user_profile);
+        user_profile.setOnClickListener(view ->{
+            Intent intent = new Intent(Activity_LoginPage.this,Activity_Individual_register.class);
+            startActivity(intent);
+        } );
+
+        ImageButton single_user = findViewById(R.id.single_account);
+        single_user.setOnClickListener(view ->{
+            Intent intent = new Intent(Activity_LoginPage.this,Activity_Individual_register.class);
+            startActivity(intent);
+        } );
     }
 }

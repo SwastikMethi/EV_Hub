@@ -75,6 +75,7 @@
         android:layout_marginLeft="6dp"
         />
     <ImageButton
+        android:id="@+id/single_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleY="0.65"
