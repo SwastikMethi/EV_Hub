@@ -99,6 +99,7 @@
                         android:layout_height="wrap_content"
                         android:text="Remember Me"
                         android:checked="false"
+                        android:visibility="invisible"
                         app:layout_constraintTop_toBottomOf="@id/password_login"
                         app:layout_constraintLeft_toLeftOf="@id/password_login"
                         />

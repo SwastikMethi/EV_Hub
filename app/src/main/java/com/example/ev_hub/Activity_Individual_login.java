@@ -28,6 +28,17 @@ public class Activity_Individual_login extends AppCompatActivity {
     Button btn_login;
     CheckBox remember_me;
     FirebaseAuth mAuth;
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null){
+            Intent intent = new Intent(Activity_Individual_login.this, Activity_HomePage.class);
+            startActivity(intent);
+            finish();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,12 +61,12 @@ public class Activity_Individual_login extends AppCompatActivity {
         password = findViewById(R.id.password_login);
         btn_login = findViewById(R.id.login_button);
         remember_me = findViewById(R.id.checkbox);
-        SharedPreferences sharedPreferences = getSharedPreferences("user_data",MODE_PRIVATE);
+//        SharedPreferences sharedPreferences = getSharedPreferences("user_data",MODE_PRIVATE);
 
-        if(sharedPreferences.contains("email") && sharedPreferences.contains("password")){
-            Intent intent = new Intent(Activity_Individual_login.this,Activity_HomePage.class);
-            startActivity(intent);
-        }
+//        if(sharedPreferences.contains("email") && sharedPreferences.contains("password")){
+//            Intent intent = new Intent(Activity_Individual_login.this,Activity_HomePage.class);
+//            startActivity(intent);
+//        }
 
         btn_login.setOnClickListener(view ->{
             String email_text = email.getText().toString();
@@ -67,12 +78,12 @@ public class Activity_Individual_login extends AppCompatActivity {
                 Toast.makeText(this, "Password is required", Toast.LENGTH_SHORT).show();
             }
 
-            if(remember_me.isChecked()){
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("email",email_text);
-                editor.putString("password",password_text);
-                editor.apply();
-            }
+//            if(remember_me.isChecked()){
+//                SharedPreferences.Editor editor = sharedPreferences.edit();
+//                editor.putString("email",email_text);
+//                editor.putString("password",password_text);
+//                editor.apply();
+//            }
             mAuth.signInWithEmailAndPassword(email_text, password_text)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
@@ -81,8 +92,8 @@ public class Activity_Individual_login extends AppCompatActivity {
                                 // Sign in success, update UI with the signed-in user's information
                                 //FirebaseUser user = mAuth.getCurrentUser();
                                 Intent intent = new Intent(Activity_Individual_login.this,Activity_HomePage.class);
-                                startActivity(intent);
                                 finish();
+                                startActivity(intent);
                             } else {
                                 // If sign in fails, display a message to the user.
                                 Toast.makeText(Activity_Individual_login.this, "Authentication failed.", Toast.LENGTH_SHORT).show();

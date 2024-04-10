@@ -24,6 +24,7 @@ public class Activity_page_02 extends AppCompatActivity {
             return insets;
 
         });
+
         AppCompatButton startBtn = findViewById(R.id.startBtn);
         startBtn.setOnClickListener(view ->{
             Intent intent = new Intent(Activity_page_02.this,Activity_LoginPage.class);

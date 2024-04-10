@@ -2,7 +2,10 @@ package com.example.ev_hub;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,7 +13,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class Activity_HomePage extends AppCompatActivity {
+    FirebaseAuth auth;
+    Button btn_logout;
+    FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,5 +36,19 @@ public class Activity_HomePage extends AppCompatActivity {
             Intent intent = new Intent(Activity_HomePage.this, Activity_Map.class);
             startActivity(intent);
         } );
+
+        auth = FirebaseAuth.getInstance();
+        btn_logout = findViewById(R.id.log_out);
+        user = auth.getCurrentUser();
+
+        btn_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(Activity_HomePage.this, Activity_LoginPage.class);
+                finish();
+                startActivity(intent);
+            }
+        });
     }
 }
