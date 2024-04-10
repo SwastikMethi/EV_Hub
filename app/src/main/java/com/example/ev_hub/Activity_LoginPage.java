@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -48,6 +49,11 @@ public class Activity_LoginPage extends AppCompatActivity {
         single_user.setOnClickListener(view ->{
             Intent intent = new Intent(Activity_LoginPage.this,Activity_Individual_register.class);
             startActivity(intent);
+        } );
+
+        ImageButton company_user = findViewById(R.id.company_profile);
+        company_user.setOnClickListener(view ->{
+            Toast.makeText(this, "Currently in Progress", Toast.LENGTH_SHORT).show();
         } );
     }
 }

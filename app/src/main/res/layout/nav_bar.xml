@@ -12,6 +12,51 @@
     android:layout_marginRight="15dp"
     android:layout_marginLeft="15dp">
 
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/green_home_btn"
+        layout="@layout/home_btn"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="4dp"
+        android:visibility="invisible"
+        />
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/green_nav_btn"
+        layout="@layout/navigation_btn"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/green_home_btn"
+        app:layout_constraintRight_toLeftOf="@id/green_route_btn"
+        android:visibility="invisible"
+        />
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/green_route_btn"
+        layout="@layout/route_btn"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/green_nav_btn"
+        app:layout_constraintRight_toLeftOf="@id/green_user_btn"
+        android:visibility="invisible"
+        />
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/green_user_btn"
+        layout="@layout/user_btn"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="4dp"
+        android:visibility="invisible"
+        />
+
     <ImageButton
         android:id="@+id/home_button"
         android:layout_width="wrap_content"
@@ -70,59 +115,6 @@
         app:layout_constraintRight_toRightOf="parent"
         android:padding="4dp"
         android:layout_marginRight="7dp"
-
         />
-
-
-    <TextView
-        android:id="@+id/home_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Home"
-        android:textColor="@color/white"
-        app:layout_constraintLeft_toRightOf="@id/home_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textSize="18dp"
-        android:visibility="invisible"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Maps"
-        android:textColor="@color/white"
-        app:layout_constraintLeft_toRightOf="@id/nav_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textSize="18dp"
-        android:visibility="invisible"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Trip"
-        android:textColor="@color/white"
-        app:layout_constraintLeft_toRightOf="@id/route_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textSize="18dp"
-        android:visibility="invisible"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Profile"
-        android:textColor="@color/white"
-        app:layout_constraintLeft_toRightOf="@id/user_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textSize="18dp"
-        android:visibility="invisible"
-        />
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -60,13 +60,6 @@ public class Activity_Individual_login extends AppCompatActivity {
         email = findViewById(R.id.email_login);
         password = findViewById(R.id.password_login);
         btn_login = findViewById(R.id.login_button);
-        remember_me = findViewById(R.id.checkbox);
-//        SharedPreferences sharedPreferences = getSharedPreferences("user_data",MODE_PRIVATE);
-
-//        if(sharedPreferences.contains("email") && sharedPreferences.contains("password")){
-//            Intent intent = new Intent(Activity_Individual_login.this,Activity_HomePage.class);
-//            startActivity(intent);
-//        }
 
         btn_login.setOnClickListener(view ->{
             String email_text = email.getText().toString();
@@ -78,12 +71,6 @@ public class Activity_Individual_login extends AppCompatActivity {
                 Toast.makeText(this, "Password is required", Toast.LENGTH_SHORT).show();
             }
 
-//            if(remember_me.isChecked()){
-//                SharedPreferences.Editor editor = sharedPreferences.edit();
-//                editor.putString("email",email_text);
-//                editor.putString("password",password_text);
-//                editor.apply();
-//            }
             mAuth.signInWithEmailAndPassword(email_text, password_text)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override

@@ -7,6 +7,7 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.SearchView;
 import android.widget.Toast;
 
@@ -51,7 +52,10 @@ public class Activity_Map extends AppCompatActivity implements OnMapReadyCallbac
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+
         });
+        findViewById(R.id.nav_button).setVisibility(View.INVISIBLE);
+        findViewById(R.id.green_nav_btn).setVisibility(View.VISIBLE);
 //        // searching in maps
         searchView = findViewById(R.id.search_view);
 
@@ -145,4 +149,5 @@ public class Activity_Map extends AppCompatActivity implements OnMapReadyCallbac
             }
         }
     }
+
 }
