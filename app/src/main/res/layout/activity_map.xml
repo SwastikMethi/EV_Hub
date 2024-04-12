@@ -32,4 +32,87 @@
         android:elevation="5dp"
         android:queryBackground="@android:color/transparent"
         />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/nav_bar"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:elevation="20dp"
+        app:cardCornerRadius="10dp"
+        android:visibility="invisible"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/selected_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Selected Location"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                />
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="#7A7A7A"
+                app:layout_constraintTop_toBottomOf="@+id/selected_location"
+                app:layout_constraintLeft_toLeftOf="@id/selected_location"
+                android:layout_marginTop="5dp"
+                />
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12:00 AM - 11:59 PM"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/kms"
+                app:layout_constraintLeft_toLeftOf="@id/kms"
+                android:layout_marginTop="5dp"
+                />
+            <TextView
+                android:id="@+id/kms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Distance"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/address"
+                app:layout_constraintLeft_toLeftOf="@id/address"
+                android:layout_marginTop="20dp"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/get_directions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Get Directions"
+                android:textAllCaps="false"
+                android:background="@drawable/button_02"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                android:layout_margin="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/time"
+
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

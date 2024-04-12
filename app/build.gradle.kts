@@ -71,4 +71,5 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.android.gms:play-services-location:21.2.0")
     implementation("androidx.cardview:cardview:1.0.0")
+    implementation("com.github.dangiashish:Google-Direction-Api:1.6")
 }

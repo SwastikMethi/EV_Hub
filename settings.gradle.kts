@@ -16,8 +16,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven (url = "https://jitpack.io")
     }
 }
+
 
 rootProject.name = "Ev_Hub"
 include(":app")
