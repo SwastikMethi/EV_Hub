@@ -103,8 +103,6 @@ public class Activity_Individual_register extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    // Sign in success, update UI with the signed-in user's information
-                                    //FirebaseUser user = mAuth.getCurrentUser();
                                     Toast.makeText(Activity_Individual_register.this, "Account created successfully", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(Activity_Individual_register.this, Activity_Individual_login.class);
                                     startActivity(intent);

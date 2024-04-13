@@ -1,7 +1,9 @@
 package com.example.ev_hub;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,33 +29,21 @@ public class Activity_LoginPage extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        TextView skip = findViewById(R.id.skip_text);
-        skip.setOnClickListener(view ->{
-            Intent intent = new Intent(Activity_LoginPage.this,Activity_HomePage.class);
-            startActivity(intent);
-        } );
 
         TextView login = findViewById(R.id.login);
         login.setOnClickListener(view ->{
             Intent intent = new Intent(Activity_LoginPage.this,Activity_Individual_login.class);
             startActivity(intent);
         } );
-
-        ImageButton user_profile = findViewById(R.id.user_profile);
-        user_profile.setOnClickListener(view ->{
+        View indivisual_user = findViewById(R.id.individual_profile);
+        indivisual_user.setOnClickListener(view ->{
             Intent intent = new Intent(Activity_LoginPage.this,Activity_Individual_register.class);
             startActivity(intent);
-        } );
+        });
 
-        ImageButton single_user = findViewById(R.id.single_account);
-        single_user.setOnClickListener(view ->{
-            Intent intent = new Intent(Activity_LoginPage.this,Activity_Individual_register.class);
-            startActivity(intent);
-        } );
-
-        ImageButton company_user = findViewById(R.id.company_profile);
+        View company_user = findViewById(R.id.company_profile);
         company_user.setOnClickListener(view ->{
-            Toast.makeText(this, "Currently in Progress", Toast.LENGTH_SHORT).show();
-        } );
+            Toast.makeText(this, "Page under Progress", Toast.LENGTH_SHORT).show();
+        });
     }
 }
