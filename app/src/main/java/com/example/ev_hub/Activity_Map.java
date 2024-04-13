@@ -49,6 +49,8 @@ import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -66,8 +68,8 @@ public class Activity_Map extends AppCompatActivity implements OnMapReadyCallbac
     private LatLng destination_location = null;
     private LatLng source_location;
     private List<Polyline> polylines = new ArrayList<>();
-
     Button togooglemaps;
+    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1001;
 
 
     @Override
@@ -93,6 +95,7 @@ public class Activity_Map extends AppCompatActivity implements OnMapReadyCallbac
             fragment.getMapAsync(this);
         }
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+        checkLocationPermission();
     }
 
     @Override
@@ -228,7 +231,7 @@ public class Activity_Map extends AppCompatActivity implements OnMapReadyCallbac
 
     @Override
     public void onRouteStart() {
-        Toast.makeText(this, "Route Mapped", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Mapping Route", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -250,5 +253,31 @@ public class Activity_Map extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onRouteCancelled() {
         Toast.makeText(this, "Route Cancelled", Toast.LENGTH_SHORT).show();
+    }
+    private void checkLocationPermission() {
+        // Check if the location permission is granted
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // If permission is not granted, request it
+            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
+        } else {
+            // If permission is already granted, fetch the user's location
+            fetchMyLocation();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @androidx.annotation.NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        // Check if the permission request is for location and if it's granted
+        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            // Permission granted, fetch the user's location
+            fetchMyLocation();
+        } else {
+            // Permission denied, handle it gracefully
+            // You may inform the user about the necessity of location permission for the app's functionality
+            // Or disable location-related features
+            Toast.makeText(this, "Location permission denied", Toast.LENGTH_SHORT).show();
+        }
     }
 }

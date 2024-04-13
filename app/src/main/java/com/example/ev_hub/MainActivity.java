@@ -1,12 +1,20 @@
 package com.example.ev_hub;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -16,7 +24,6 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
-
     @Override
     public void onStart() {
         super.onStart();
@@ -48,7 +55,5 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, Activity_page_02.class);
             startActivity(intent);
         });
-
     }
-
 }
