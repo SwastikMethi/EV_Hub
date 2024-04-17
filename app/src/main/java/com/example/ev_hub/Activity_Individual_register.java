@@ -34,18 +34,6 @@ public class Activity_Individual_register extends AppCompatActivity {
     FirebaseAuth mAuth;
 
     @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            Intent intent = new Intent(Activity_Individual_register.this, Activity_HomePage.class);
-            startActivity(intent);
-            finish();
-        }
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
@@ -61,7 +49,7 @@ public class Activity_Individual_register extends AppCompatActivity {
             Intent intent = new Intent(Activity_Individual_register.this,Activity_Individual_login.class);
             startActivity(intent);
             finish();
-        } );
+        });
 
         mAuth = FirebaseAuth.getInstance();
         name = findViewById(R.id.full_name);

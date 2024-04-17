@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/cabin_bold"
-                android:text="Create New Account"
+                android:text="Create New Individual Account"
                 android:textColor="#737373"
                 android:textSize="22dp"
                 app:layout_constraintLeft_toLeftOf="parent"

@@ -1,20 +1,65 @@
-{
-    "locations": [
-      {
-        "latitude": 28.44565308022041,
-        "longitude": 77.55669672468707,
-        "title": "Kanidi Biotech"
-      },
-      {
-        "latitude": 28.58,
-        "longitude": 77.33,
-        "title": "Prateek Edifice"
-      },
-      {
-        "latitude": 28.626707,
-        "longitude": 77.37762,
-        "title": "EVCD Direct"
-      }
-    ]
+[
+  {
+    "latitude": 28.44565308022041,
+    "longitude": 77.55669672468707,
+    "title": "Kanidi Biotech",
+    "chargers": 2,
+    "address": "123 Main Street, City, Country"
+  },
+  {
+    "latitude": 28.58,
+    "longitude": 77.33,
+    "title": "Prateek Edifice",
+    "chargers": 1,
+    "address": "456 Elm Street, City, Country"
+  },
+  {
+    "latitude": 28.626707,
+    "longitude": 77.37762,
+    "title": "EVCD Direct",
+    "chargers": 3,
+    "address": "789 Oak Street, City, Country"
+  },
+  {
+    "latitude": 28.6266422,
+    "longitude": 77.37762,
+    "title": "EVCD S Private",
+    "chargers": 2,
+    "address": "101 Pine Street, City, Country"
+  },
+  {
+    "latitude": 28.4456,
+    "longitude": 77.5566,
+    "title": "Ev Power 001",
+    "chargers": 1,
+    "address": "111 Maple Street, City, Country"
+  },
+  {
+    "latitude": 28.62721,
+    "longitude": 77.37766,
+    "title": "Chandigarh-EV-001",
+    "chargers": 4,
+    "address": "222 Walnut Street, City, Country"
+  },
+  {
+    "latitude": 28.4369,
+    "longitude": 77.1126,
+    "title": "Sun City Demo",
+    "chargers": 2,
+    "address": "333 Cedar Street, City, Country"
+  },
+  {
+    "latitude": 30.8801,
+    "longitude": 75.82789,
+    "title": "Centra Greens EV 002",
+    "chargers": 3,
+    "address": "444 Birch Street, City, Country"
+  },
+  {
+    "latitude": 28.5048,
+    "longitude": 77.41142,
+    "title": "Paras Tierea EV 004",
+    "chargers": 2,
+    "address": "555 Spruce Street, City, Country"
   }
-  
+]

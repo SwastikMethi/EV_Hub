@@ -30,7 +30,7 @@ public class Activity_LoginPage extends AppCompatActivity {
             return insets;
         });
 
-        TextView login = findViewById(R.id.login);
+        TextView login = findViewById(R.id.individual_login_page);
         login.setOnClickListener(view ->{
             Intent intent = new Intent(Activity_LoginPage.this,Activity_Individual_login.class);
             startActivity(intent);
@@ -43,7 +43,13 @@ public class Activity_LoginPage extends AppCompatActivity {
 
         View company_user = findViewById(R.id.company_profile);
         company_user.setOnClickListener(view ->{
-            Toast.makeText(this, "Page under Progress", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(Activity_LoginPage.this,Activity_Company_register.class);
+            startActivity(intent);
+        });
+
+        findViewById(R.id.company_login_page).setOnClickListener(v -> {
+            Intent intent = new Intent(Activity_LoginPage.this, Activity_Company_login.class);
+            startActivity(intent);
         });
     }
 }
