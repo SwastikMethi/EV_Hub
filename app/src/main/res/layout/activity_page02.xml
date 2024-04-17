@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity_page_02"
+    >
+
+    <TextView
+        android:id="@+id/chargingStations"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/audiowide"
+        android:text="Plan Your Trips"
+        android:textColor="#40BC2C"
+        android:textSize="24dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/car"
+        android:src="@drawable/car"
+        app:layout_constraintLeft_toRightOf="@id/chargingStations"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="10dp"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/charger"
+        android:src="@drawable/charger"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="75dp"
+        />
+
+    <TextView
+        android:id="@+id/locateStation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/audiowide"
+        android:text="Know Your Route Better"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="230dp"
+        />
+
+    <TextView
+        android:id="@+id/para"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Lorem Ipsum is simply dummy text of the type setting industry. Lorem Ipsum is
+simply dummy text of the typesetting
+industry.Lorem Ipsum is simply dummy text of the type setting industry. Lorem Ipsum is
+simply dummy text of the typesetting
+industry."
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textSize="16dp"
+        app:layout_constraintTop_toBottomOf="@id/locateStation"
+        />
+
+    <ImageView
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:id="@+id/dot"
+        android:src="@drawable/dot"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/slider"
+        android:layout_marginBottom="35dp"
+        android:layout_marginLeft="10dp"
+        />
+
+    <ImageView
+        android:id="@+id/slider"
+        android:layout_width="40dp"
+        android:layout_height="15dp"
+        android:src="@drawable/slider"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginLeft="60dp"
+        android:layout_marginBottom="35dp"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/startBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_01"
+        android:text="Start"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="25dp"
+        android:elevation="5dp"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

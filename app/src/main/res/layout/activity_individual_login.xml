@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity_Individual_login"
+    android:background="#353434"
+    >
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:src="@drawable/ev_hub_logo"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/guide_01"
+        />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_01"
+        android:layout_width="match_parent"
+        android:layout_height="700dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guide_01"
+        app:cardCornerRadius="45dp"
+        app:cardBackgroundColor="#F4F4F4"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/cabin_bold"
+                android:text="Login to Your Individual Account"
+                android:textColor="#737373"
+                android:textSize="22dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_02"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:cardElevation="20dp"
+                app:cardCornerRadius="30dp"
+                android:layout_marginTop="55dp"
+                >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/email_login"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:ems="14"
+                        android:hint="Email Id"
+                        android:textStyle="normal"
+                        android:inputType="textEmailAddress"
+                        android:layout_marginTop="40dp"
+                        android:background="@drawable/individual_login"
+                        android:padding="15dp"
+                        />
+
+                    <EditText
+                        android:id="@+id/password_login"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/email_login"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:ems="14"
+                        android:hint="Password"
+                        android:inputType="textPassword"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/individual_login"
+                        android:padding="15dp"
+                        />
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/login_button"
+                        android:layout_width="200dp"
+                        android:layout_height="40dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/password_login"
+                        android:background="@drawable/button_04"
+                        android:text="Login"
+                        android:textAllCaps="false"
+                        android:textSize="17dp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/average_sans"
+                        android:layout_marginTop="40dp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/account"
+                        android:text="Don’t have an account?"
+                        android:textSize="18dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/login_button"
+                        android:layout_marginTop="35dp"
+                        android:layout_marginRight="50dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/register"
+                        android:text="Register"
+                        android:textSize="18dp"
+                        app:layout_constraintLeft_toRightOf="@id/account"
+                        app:layout_constraintBottom_toBottomOf="@id/account"
+                        android:textColor="#1A92E8"
+                        android:layout_marginTop="90dp"
+                        android:layout_marginLeft="6dp"
+                        android:clickable="true"
+                        />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.38"
+        android:orientation="horizontal"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

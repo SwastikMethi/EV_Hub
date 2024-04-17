@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      android:id="@+id/main"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      tools:context=".Activity_HomePage"
+      android:background="#E4E4E4">
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/reserve_dock_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reserve EV Dock"
+        android:textAllCaps="false"
+        android:background="@drawable/select_card"
+        app:layout_constraintTop_toBottomOf="@id/guideline_02"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/guideline_01"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:padding="40dp"
+  />
+
+
+  <include
+      android:id="@+id/nav_bar"
+      layout="@layout/nav_bar"
+      />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/log_out"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:text="Log Out"
+        android:textAllCaps="false"
+        android:background="@drawable/select_card"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        />
+  <!--  <ImageButton-->
+<!--      android:id="@+id/reserve_dock"-->
+<!--      android:layout_width="wrap_content"-->
+<!--      android:layout_height="wrap_content"-->
+<!--      android:src="@drawable/reserve_dock"-->
+<!--      app:layout_constraintBottom_toTopOf="@id/nav_bar"-->
+<!--      app:layout_constraintLeft_toLeftOf="parent"-->
+<!--      android:background="?attr/selectableItemBackgroundBorderless"-->
+<!--      app:layout_constraintRight_toLeftOf="@id/guideline_01"-->
+<!--      android:layout_marginBottom="20dp"-->
+<!--      />-->
+
+<!--  <ImageButton-->
+<!--      android:id="@+id/register_car"-->
+<!--      android:layout_width="wrap_content"-->
+<!--      android:layout_height="wrap_content"-->
+<!--      android:src="@drawable/register_car"-->
+<!--      app:layout_constraintBottom_toTopOf="@id/nav_bar"-->
+<!--      app:layout_constraintLeft_toRightOf="@id/guideline_01"-->
+<!--      app:layout_constraintRight_toRightOf="parent"-->
+<!--        android:layout_marginBottom="20dp"-->
+<!--      android:background="?attr/selectableItemBackgroundBorderless"-->
+<!--        />-->
+  <!--  <ImageButton-->
+  <!--      android:id="@+id/select_ev"-->
+  <!--      android:layout_width="wrap_content"-->
+  <!--      android:layout_height="wrap_content"-->
+  <!--      android:src="@drawable/select_ev"-->
+  <!--      app:layout_constraintBottom_toTopOf="@id/register_car"-->
+  <!--      app:layout_constraintRight_toRightOf="parent"-->
+  <!--      app:layout_constraintLeft_toRightOf="@id/guideline_01"-->
+  <!--      android:background="?attr/selectableItemBackgroundBorderless"-->
+  <!--      android:layout_marginBottom="15dp"-->
+  <!--        />-->
+
+  <include
+      android:id="@+id/nearest_station_card"
+      layout="@layout/nearest_station_card"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintBottom_toTopOf="@id/guideline_02"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      android:layout_marginBottom="10dp"
+      android:padding="10dp"
+      />
+  <include
+      android:id="@+id/reserve_dock_card"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      layout="@layout/reserve_dock_layout"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toLeftOf="@id/guideline_01"
+      app:layout_constraintTop_toBottomOf="@id/guideline_02"
+      app:layout_constraintBottom_toTopOf="@id/nav_bar"
+      android:layout_marginBottom="14dp"
+      />
+
+  <include
+      android:id="@+id/select_ev_card"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      layout="@layout/select_ev_card"
+      app:layout_constraintTop_toBottomOf="@id/guideline_02"
+      app:layout_constraintLeft_toRightOf="@id/guideline_01"
+      app:layout_constraintRight_toRightOf="parent"
+      android:layout_marginTop="10dp"
+      />
+
+  <include
+      android:id="@+id/register_car_card"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      layout="@layout/register_car"
+      app:layout_constraintTop_toBottomOf="@id/select_ev_card"
+      app:layout_constraintLeft_toRightOf="@id/guideline_01"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintBottom_toTopOf="@id/nav_bar"
+      />
+<!--  <ImageButton-->
+<!--      android:id="@+id/closest"-->
+<!--      android:layout_width="wrap_content"-->
+<!--      android:layout_height="wrap_content"-->
+<!--      android:src="@drawable/closest_station"-->
+<!--      app:layout_constraintBottom_toTopOf="@id/guideline_02"-->
+<!--      android:background="?attr/selectableItemBackgroundBorderless"-->
+<!--      app:layout_constraintRight_toRightOf="parent"-->
+<!--      app:layout_constraintLeft_toLeftOf="parent"-->
+<!--      android:layout_marginBottom="10dp"-->
+<!--      android:scaleType="fitEnd"-->
+
+<!--      />-->
+
+<!--  <TextView-->
+<!--      android:id="@+id/closest_text"-->
+<!--      android:layout_width="wrap_content"-->
+<!--      android:layout_height="wrap_content"-->
+<!--      android:fontFamily="@font/baloo"-->
+<!--      android:text="Find nearest "-->
+<!--      android:textAlignment="center"-->
+<!--      android:textColor="@color/black"-->
+<!--      android:textSize="23dp"-->
+<!--      app:layout_constraintLeft_toLeftOf="@id/closest"-->
+<!--      app:layout_constraintTop_toTopOf="@id/closest"-->
+<!--      android:layout_marginLeft="10dp"-->
+<!--        android:layout_marginTop="4dp"-->
+<!--      />-->
+
+<!--  <TextView-->
+<!--      android:id="@+id/charging_station"-->
+<!--      android:layout_width="wrap_content"-->
+<!--      android:layout_height="wrap_content"-->
+<!--      android:fontFamily="@font/baloo"-->
+<!--      android:text="charging station "-->
+<!--      android:textAlignment="center"-->
+<!--      android:textColor="@color/black"-->
+<!--      android:textSize="23dp"-->
+<!--      app:layout_constraintLeft_toLeftOf="@id/closest"-->
+<!--      app:layout_constraintTop_toBottomOf="@id/closest_text"-->
+<!--      android:layout_marginLeft="10dp"-->
+<!--      android:layout_marginTop="-6dp"-->
+<!--      />-->
+
+<!--  <androidx.appcompat.widget.AppCompatButton-->
+<!--      android:layout_width="170dp"-->
+<!--      android:layout_height="30dp"-->
+<!--      android:text="Get Location"-->
+<!--      android:textSize="16dp"-->
+<!--      android:textStyle="normal"-->
+<!--      android:textColor="@color/white"-->
+<!--      android:fontFamily="@font/average_sans"-->
+<!--      android:background="@drawable/button_02"-->
+<!--      app:layout_constraintLeft_toLeftOf="@id/closest"-->
+<!--      app:layout_constraintBottom_toBottomOf="@id/closest"-->
+<!--      android:layout_marginLeft="10dp"-->
+<!--      android:layout_marginBottom="8dp"-->
+<!--      />-->
+
+<!--  <ImageButton-->
+<!--      android:id="@+id/get_location"-->
+<!--      android:layout_width="wrap_content"-->
+<!--      android:layout_height="wrap_content"-->
+<!--      android:src="@drawable/get_location_btn"-->
+<!--      android:background="?attr/selectableItemBackgroundBorderless"-->
+<!--      app:layout_constraintTop_toBottomOf="@+id/charging_station"-->
+<!--      app:layout_constraintLeft_toLeftOf="@+id/closest"-->
+<!--      android:layout_marginTop="9dp"-->
+<!--      android:layout_marginLeft="10dp"-->
+<!--      />-->
+
+<!--  <TextView-->
+<!--      android:layout_width="wrap_content"-->
+<!--      android:layout_height="wrap_content"-->
+<!--      android:fontFamily="@font/average_sans"-->
+<!--      android:text="Get Location"-->
+<!--      android:textColor="@color/white"-->
+<!--      android:textSize="16dp"-->
+<!--      android:textStyle="bold"-->
+<!--      app:layout_constraintBottom_toBottomOf="@id/get_location"-->
+<!--      app:layout_constraintLeft_toLeftOf="@id/get_location"-->
+<!--      app:layout_constraintTop_toTopOf="@id/get_location"-->
+<!--      app:layout_constraintRight_toRightOf="@id/get_location"/>-->
+
+  <androidx.constraintlayout.widget.Guideline
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintGuide_percent="0.45"
+      android:id="@+id/guideline_01"
+      android:orientation="vertical"
+      />
+  <androidx.constraintlayout.widget.Guideline
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintGuide_percent="0.54"
+      android:id="@+id/guideline_02"
+      android:orientation="horizontal"
+      />
+</androidx.constraintlayout.widget.ConstraintLayout>
