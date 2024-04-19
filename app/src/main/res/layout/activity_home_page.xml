@@ -13,10 +13,36 @@
     android:id="@+id/nav_bar"
     layout="@layout/nav_bar"
     />
+  <TextView
+      android:id="@+id/welcome_text"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Welcome, "
+      android:textSize="20dp"
+      android:textColor="@color/black"
+      android:fontFamily="@font/cabin_bold"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent"
+      android:layout_marginLeft="10dp"
+      android:layout_marginTop="10dp"
+      />
+  <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User"
+        android:textSize="20dp"
+        android:textColor="#28D257"
+        android:fontFamily="@font/cabin_bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/welcome_text"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        />
   <androidx.appcompat.widget.AppCompatButton
       android:id="@+id/log_out"
-      android:layout_width="80dp"
-      android:layout_height="40dp"
+      android:layout_width="65dp"
+      android:layout_height="30dp"
       android:text="Log Out"
       android:textAllCaps="false"
       android:background="@drawable/select_card"

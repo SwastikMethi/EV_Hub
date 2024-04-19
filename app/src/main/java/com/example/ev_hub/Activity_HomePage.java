@@ -6,6 +6,7 @@ import android.text.Layout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -20,8 +21,9 @@ import com.google.firebase.auth.FirebaseUser;
 public class Activity_HomePage extends AppCompatActivity {
     FirebaseAuth auth;
     Button btn_logout,book_button, get_location;
-    View reserve_dock, select_ev, register_car;
+    View register_car, select_ev;
     FirebaseUser user;
+    TextView user_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +39,16 @@ public class Activity_HomePage extends AppCompatActivity {
         map.setOnClickListener(view ->{
             Intent intent = new Intent(Activity_HomePage.this, Activity_Map.class);
             startActivity(intent);
-        } );
+        });
 
         book_button = findViewById(R.id.book_button);
         auth = FirebaseAuth.getInstance();
         btn_logout = findViewById(R.id.log_out);
         get_location = findViewById(R.id.get_location_button);
         user = auth.getCurrentUser();
+        user_name = findViewById(R.id.name);
+        
+//        user_name.setText(user.getDisplayName());
 
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -25,13 +25,14 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
 public class Activity_Individual_register extends AppCompatActivity {
 
-    EditText name, email, password;
+    EditText user_name, email, password;
     Button btn_register;
     FirebaseAuth mAuth;
     FirebaseDatabase userdb;
@@ -68,7 +69,7 @@ public class Activity_Individual_register extends AppCompatActivity {
         });
 
         mAuth = FirebaseAuth.getInstance();
-        name = findViewById(R.id.full_name);
+        user_name = findViewById(R.id.full_name);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         btn_register = findViewById(R.id.register_button);
@@ -77,10 +78,9 @@ public class Activity_Individual_register extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String email, name, password;
-                name = String.valueOf(Activity_Individual_register.this.name.getText());
+                name = user_name.getText().toString();
                 email = String.valueOf(Activity_Individual_register.this.email.getText());
                 password = String.valueOf(Activity_Individual_register.this.password.getText());
-
 
                 if(TextUtils.isEmpty(name)){
                     Toast.makeText(Activity_Individual_register.this, "Name is required", Toast.LENGTH_SHORT).show();
@@ -112,6 +112,11 @@ public class Activity_Individual_register extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
+                                    FirebaseUser user = mAuth.getCurrentUser();
+                                    UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                            .setDisplayName(name)
+                                            .build();
+                                    user.updateProfile(profileUpdates);
                                     Toast.makeText(Activity_Individual_register.this, "Account created successfully", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(Activity_Individual_register.this, Activity_Individual_login.class);
                                     startActivity(intent);
