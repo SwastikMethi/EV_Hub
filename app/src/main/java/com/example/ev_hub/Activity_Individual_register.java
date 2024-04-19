@@ -25,6 +25,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class Activity_Individual_register extends AppCompatActivity {
@@ -32,6 +34,20 @@ public class Activity_Individual_register extends AppCompatActivity {
     EditText name, email, password;
     Button btn_register;
     FirebaseAuth mAuth;
+    FirebaseDatabase userdb;
+    DatabaseReference user_ref;
+
+    private String extractUsername(String email) {
+        // Use substring to get the part before @gmail.com
+        int atIndex = email.indexOf("@");
+
+        if (atIndex != -1) {
+            return email.substring(0, atIndex);
+        } else {
+            // Handle the case where the email doesn't contain @
+            return email;
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +81,7 @@ public class Activity_Individual_register extends AppCompatActivity {
                 email = String.valueOf(Activity_Individual_register.this.email.getText());
                 password = String.valueOf(Activity_Individual_register.this.password.getText());
 
+
                 if(TextUtils.isEmpty(name)){
                     Toast.makeText(Activity_Individual_register.this, "Name is required", Toast.LENGTH_SHORT).show();
                     return;
@@ -85,7 +102,11 @@ public class Activity_Individual_register extends AppCompatActivity {
                     alert.setVisibility(View.VISIBLE);
                     return;
                 }
-
+                String unique_username = extractUsername(email);
+                register_helper reg = new register_helper(name, email, password);
+                userdb = FirebaseDatabase.getInstance("https://ev-hub-acebb-default-rtdb.firebaseio.com/");
+                user_ref = userdb.getReference("User_Data");
+                user_ref.child(unique_username).setValue(reg);
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override

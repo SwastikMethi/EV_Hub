@@ -66,10 +66,11 @@ buildscript {
     }
 }
 dependencies {
+    implementation(libs.firebase.database)
     implementation(libs.firebase.auth)
-    implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
-    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-bom:32.8.0")
     implementation("com.google.android.gms:play-services-location:21.2.0")
     implementation("androidx.cardview:cardview:1.0.0")
     implementation("com.github.dangiashish:Google-Direction-Api:1.6")
+    implementation("com.google.firebase:firebase-database:20.3.0")
 }

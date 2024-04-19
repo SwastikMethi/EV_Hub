@@ -21,14 +21,25 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
+
     @Override
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
+//        user_ref = FirebaseDatabase.getInstance("https://ev-hub-acebb-default-rtdb.firebaseio.com/").getReference("User_Data");
+//        company_ref = FirebaseDatabase.getInstance("https://ev-hub-acebb-default-rtdb.firebaseio.com/").getReference("Company_Data");
+//        Query checkuser = user_ref.orderByChild("email").equalTo(currentUser.getEmail());
+//        Query checkcompany = company_ref.orderByChild("email").equalTo(currentUser.getEmail());
         if(currentUser != null){
             Intent intent = new Intent(MainActivity.this, Activity_HomePage.class);
             startActivity(intent);

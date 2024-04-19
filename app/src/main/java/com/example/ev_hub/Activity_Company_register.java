@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -21,14 +22,16 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
-import org.checkerframework.checker.nullness.qual.NonNull;
 
 public class Activity_Company_register extends AppCompatActivity {
     EditText name, contact_no, password;
     Button btn_register;
     FirebaseAuth mAuth;
-
+    FirebaseDatabase companydb;
+    DatabaseReference company_ref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +60,7 @@ public class Activity_Company_register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String number = contact_no.getText().toString();
+                String name_1 = name.getText().toString();
                 String pass = password.getText().toString();
                 if (contact_no.length()<10) {
                     Toast.makeText(Activity_Company_register.this, "Enter valid Contact number", Toast.LENGTH_SHORT).show();
@@ -72,7 +76,10 @@ public class Activity_Company_register extends AppCompatActivity {
                     findViewById(R.id.alert).setVisibility(TextView.VISIBLE);
                     return;
                 }
-
+                company_helper company = new company_helper(name.getText().toString(), contact_no.getText().toString(), password.getText().toString());
+                companydb = FirebaseDatabase.getInstance("https://ev-hub-acebb-default-rtdb.firebaseio.com/");
+                company_ref = companydb.getReference("Company_Data");
+                company_ref.child(name_1).setValue(company);
                 mAuth.createUserWithEmailAndPassword(number + "@company.com", pass)
                         .addOnCompleteListener(Activity_Company_register.this, new OnCompleteListener<AuthResult>() {
                             @Override

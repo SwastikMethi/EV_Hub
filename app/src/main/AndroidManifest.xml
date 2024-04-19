@@ -17,6 +17,9 @@
         android:theme="@style/Theme.Ev_Hub"
         tools:targetApi="31">
         <activity
+            android:name=".Activity_Book_docks"
+            android:exported="false" />
+        <activity
             android:name=".Activity_Company_dashboard"
             android:exported="false" />
         <activity

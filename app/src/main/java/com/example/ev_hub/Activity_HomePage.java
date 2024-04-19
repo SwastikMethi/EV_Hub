@@ -19,8 +19,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Activity_HomePage extends AppCompatActivity {
     FirebaseAuth auth;
-    Button btn_logout;
-    View nearest_charging_station, reserve_dock, select_ev, register_car;
+    Button btn_logout,book_button, get_location;
+    View reserve_dock, select_ev, register_car;
     FirebaseUser user;
 
     @Override
@@ -39,9 +39,10 @@ public class Activity_HomePage extends AppCompatActivity {
             startActivity(intent);
         } );
 
+        book_button = findViewById(R.id.book_button);
         auth = FirebaseAuth.getInstance();
         btn_logout = findViewById(R.id.log_out);
-        nearest_charging_station = findViewById(R.id.nearest_station_card);
+        get_location = findViewById(R.id.get_location_button);
         user = auth.getCurrentUser();
 
         btn_logout.setOnClickListener(new View.OnClickListener() {
@@ -54,7 +55,12 @@ public class Activity_HomePage extends AppCompatActivity {
             }
         });
 
-        nearest_charging_station.setOnClickListener(view ->{
+        book_button.setOnClickListener(v -> {
+            Intent intent = new Intent(Activity_HomePage.this, Activity_Book_docks.class);
+            startActivity(intent);
+        });
+
+        get_location.setOnClickListener(view ->{
             Intent intent = new Intent(Activity_HomePage.this, Activity_Map.class);
             startActivity(intent);
         });

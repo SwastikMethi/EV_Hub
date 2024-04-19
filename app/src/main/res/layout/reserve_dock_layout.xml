@@ -44,6 +44,7 @@
         android:layout_marginLeft="10dp"
         />
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/book_button"
         android:layout_width="70dp"
         android:layout_height="30dp"
         android:text="Book"
