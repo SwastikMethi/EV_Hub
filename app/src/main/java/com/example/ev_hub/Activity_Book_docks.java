@@ -140,6 +140,18 @@ public class Activity_Book_docks extends AppCompatActivity {
             finish();
         });
 
+        findViewById(R.id.route_button).setOnClickListener(view ->{
+            Intent intent = new Intent(Activity_Book_docks.this, Activity_Routepage.class);
+            startActivity(intent);
+            finish();
+        });
+
+        findViewById(R.id.user_button).setOnClickListener(view ->{
+            Intent intent = new Intent(Activity_Book_docks.this, Activity_ProfilePage.class);
+            startActivity(intent);
+            finish();
+        });
+
         listenForBookingStatusChanges();
     }
 
