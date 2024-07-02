@@ -16,22 +16,24 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Activity_Book_docks extends AppCompatActivity {
     Button btn_book_dock, reserve_dock_1, reserve_dock_2, reserve_dock_3;
-    ImageButton minimize;
+    ImageButton minimize, back_button;
     FirebaseDatabase reservationdb;
     DatabaseReference reservationsRef;
     TextView select_slots, start, to, end, total_connectors;
-    String start_time, end_time;
+    String userId,start_time,end_time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +48,14 @@ public class Activity_Book_docks extends AppCompatActivity {
 
         reservationdb = FirebaseDatabase.getInstance("https://ev-hub-acebb-default-rtdb.firebaseio.com/");
         reservationsRef = reservationdb.getReference("Reservations");
+        userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         btn_book_dock = findViewById(R.id.book_now);
         View dock1 = findViewById(R.id.dock_card_01);
         View dock2 = findViewById(R.id.dock_card_02);
         View dock3 = findViewById(R.id.dock_card_03);
         minimize = findViewById(R.id.minimize);
+        back_button = findViewById(R.id.back_button_book_docks);
         reserve_dock_1 = findViewById(R.id.reserve_btn_01);
         reserve_dock_2 = findViewById(R.id.reserve_btn_02);
         reserve_dock_3 = findViewById(R.id.reserve_btn_03);
@@ -62,6 +66,9 @@ public class Activity_Book_docks extends AppCompatActivity {
         end = findViewById(R.id.end);
         total_connectors = findViewById(R.id.total_connectors);
 
+        back_button.setOnClickListener(v -> {
+            finish();
+        });
         btn_book_dock.setOnClickListener(v -> {
             btn_book_dock.setVisibility(View.GONE);
             select_slots.setVisibility(View.VISIBLE);
@@ -156,6 +163,7 @@ public class Activity_Book_docks extends AppCompatActivity {
             bookingDetails.put("startTime", selectedStartTime);
             bookingDetails.put("endTime", selectedEndTime);
             bookingDetails.put("status", "pending");
+            bookingDetails.put("userId", userId);
             reservationsRef.child(bookingId).setValue(bookingDetails)
                     .addOnSuccessListener(aVoid -> {
                         // Booking request sent successfully

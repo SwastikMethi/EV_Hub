@@ -39,11 +39,12 @@ public class Activity_Individual_login extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
         TextView register = findViewById(R.id.register);
         register.setOnClickListener(view ->{
             Intent intent = new Intent(Activity_Individual_login.this,Activity_Individual_register.class);
             startActivity(intent);
-        } );
+        });
 
         mAuth = FirebaseAuth.getInstance();
         email = findViewById(R.id.email_login);

@@ -86,10 +86,19 @@ public class Activity_Map extends AppCompatActivity implements OnMapReadyCallbac
             return insets;
         });
 
+
         findViewById(R.id.nav_button).setVisibility(View.INVISIBLE);
         findViewById(R.id.green_nav_btn).setVisibility(View.VISIBLE);
         findViewById(R.id.home_button).setOnClickListener(v -> {
             Intent intent = new Intent(this, Activity_HomePage.class);
+            startActivity(intent);
+        });
+        findViewById(R.id.user_button).setOnClickListener(v -> {
+            Intent intent = new Intent(this, Activity_ProfilePage.class);
+            startActivity(intent);
+        });
+        findViewById(R.id.route_button).setOnClickListener(v -> {
+            Intent intent = new Intent(this, Activity_Routepage.class);
             startActivity(intent);
         });
         SupportMapFragment fragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
@@ -107,7 +116,6 @@ public class Activity_Map extends AppCompatActivity implements OnMapReadyCallbac
         }
         map.setMyLocationEnabled(true);
         map.getUiSettings().setZoomControlsEnabled(false);
-
         fetchMyLocation();
 
         LatLng kanidi_biotech = new LatLng(28.44565308022041, 77.55669672468707);
@@ -160,7 +168,7 @@ public class Activity_Map extends AppCompatActivity implements OnMapReadyCallbac
                     } else {
                         distanceText = String.format("%.2f", distance / 1000) + " kms";
                     }
-                    marker.setTitle(marker.getTitle() + " (" + distanceText + ")");
+                    marker.setTitle(marker.getTitle());
                 }
 
                 View card = findViewById(R.id.card_view);

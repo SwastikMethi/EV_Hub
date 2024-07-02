@@ -9,52 +9,74 @@
     tools:context=".Activity_HomePage"
     android:background="#E4E4E4">
 
-<include
-    android:id="@+id/nav_bar"
-    layout="@layout/nav_bar"
-    />
+    <include
+        android:id="@+id/nav_bar"
+        layout="@layout/nav_bar"
+        />
+
   <TextView
-      android:id="@+id/welcome_text"
+      android:id="@+id/car_name"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="Welcome, "
-      android:textSize="20dp"
-      android:textColor="@color/black"
-      android:fontFamily="@font/cabin_bold"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintLeft_toLeftOf="parent"
       android:layout_marginLeft="10dp"
       android:layout_marginTop="10dp"
-      />
-  <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="User"
-        android:textSize="20dp"
-        android:textColor="#28D257"
-        android:fontFamily="@font/cabin_bold"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/welcome_text"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        />
-  <androidx.appcompat.widget.AppCompatButton
-      android:id="@+id/log_out"
-      android:layout_width="65dp"
-      android:layout_height="30dp"
-      android:text="Log Out"
-      android:textAllCaps="false"
-      android:background="@drawable/select_card"
-      app:layout_constraintRight_toRightOf="parent"
+      android:fontFamily="@font/cabin_bold"
+      android:text="Nexon EV"
+      android:textColor="@color/black"
+      android:textSize="24dp"
+      android:textStyle="bold"
+      app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      android:layout_marginRight="15dp"
-      android:layout_marginTop="10dp"
+      />
+
+  <TextView
+      android:id="@+id/name"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:fontFamily="sans-serif"
+      android:text="TATA Motors"
+      android:textColor="#3E3E3E"
+      android:textSize="15dp"
+      android:textStyle="normal"
+      app:layout_constraintLeft_toLeftOf="@id/car_name"
+      app:layout_constraintTop_toBottomOf="@id/car_name"
+      />
+<!--  <ImageButton-->
+<!--      android:id="@+id/menu_button"-->
+<!--      android:layout_width="wrap_content"-->
+<!--      android:layout_height="wrap_content"-->
+<!--      android:src="@drawable/menu"-->
+<!--      android:background="?attr/selectableItemBackgroundBorderless"-->
+<!--      app:layout_constraintRight_toRightOf="parent"-->
+<!--      app:layout_constraintTop_toTopOf="parent"-->
+<!--      android:layout_marginRight="15dp"-->
+<!--      android:layout_marginTop="10dp"-->
+<!--      />-->
+  <ImageButton
+      android:id="@+id/wallet_img"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:src="@drawable/wallet"
+      android:background="?attr/selectableItemBackgroundBorderless"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@id/car_name"
+      android:scaleY="0.8"
+      android:scaleX="0.8"
+      android:layout_marginRight="20dp"
       />
   <TextView
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      app:layout_constraintTop_toBottomOf="@id/welcome_text"
+      android:text="Wallet"
+      app:layout_constraintTop_toBottomOf="@id/wallet_img"
+      app:layout_constraintRight_toRightOf="@id/wallet_img"
+      app:layout_constraintLeft_toLeftOf="@id/wallet_img"
+      android:textSize="12dp"
+      />
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toBottomOf="@id/car_name"
       app:layout_constraintBottom_toTopOf="@id/nearest_station_card"
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="parent"
@@ -104,11 +126,12 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       app:layout_constraintBottom_toTopOf="@id/guideline_02"
-      app:layout_constraintLeft_toLeftOf="parent"
-      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintLeft_toLeftOf="@id/reserve_dock_card"
+      app:layout_constraintRight_toRightOf="@id/select_ev_card"
       android:layout_marginBottom="10dp"
       android:padding="10dp"
       />
+
   <include
       android:id="@+id/reserve_dock_card"
       android:layout_width="wrap_content"
@@ -240,4 +263,35 @@
       android:id="@+id/guideline_02"
       android:orientation="horizontal"
       />
+  <ProgressBar
+      android:id="@+id/progress_bar"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toBottomOf="@id/name"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      android:layout_marginTop="20dp"
+      android:visibility="gone"
+      />
+<!--  <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--      xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--      xmlns:tools="http://schemas.android.com/tools"-->
+<!--      android:id="@+id/drawer_layout"-->
+<!--      android:layout_width="match_parent"-->
+<!--      android:layout_height="match_parent"-->
+<!--      tools:openDrawer="right"-->
+<!--      tools:context=".Activity_drawerpage"-->
+<!--      android:fitsSystemWindows="true"-->
+<!--      >-->
+
+<!--    <com.google.android.material.navigation.NavigationView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="match_parent"-->
+<!--        app:menu="@menu/drawer_items"-->
+<!--        app:headerLayout="@layout/header_layout"-->
+<!--        android:layout_gravity="end"-->
+<!--        app:dividerInsetStart="80dp"-->
+<!--        app:itemIconPadding="30dp"-->
+<!--        />-->
+<!--  </androidx.drawerlayout.widget.DrawerLayout>-->
 </androidx.constraintlayout.widget.ConstraintLayout>

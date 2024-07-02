@@ -2,10 +2,12 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/andika_new_basic_bold</item>
+        <item>@font/archivo_bold_italic</item>
         <item>@font/archivo_semibold</item>
         <item>@font/audiowide</item>
         <item>@font/average_sans</item>
         <item>@font/baloo</item>
         <item>@font/cabin_bold</item>
+        <item>@font/numans</item>
     </array>
 </resources>

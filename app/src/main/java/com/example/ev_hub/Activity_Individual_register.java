@@ -31,24 +31,23 @@ import com.google.firebase.database.FirebaseDatabase;
 
 
 public class Activity_Individual_register extends AppCompatActivity {
-
     EditText user_name, email, password;
     Button btn_register;
     FirebaseAuth mAuth;
     FirebaseDatabase userdb;
     DatabaseReference user_ref;
 
-    private String extractUsername(String email) {
-        // Use substring to get the part before @gmail.com
-        int atIndex = email.indexOf("@");
-
-        if (atIndex != -1) {
-            return email.substring(0, atIndex);
-        } else {
-            // Handle the case where the email doesn't contain @
-            return email;
-        }
-    }
+//    private String extractUsername(String email) {
+//        // Use substring to get the part before @gmail.com
+//        int atIndex = email.indexOf("@");
+//
+//        if (atIndex != -1) {
+//            return email.substring(0, atIndex);
+//        } else {
+//            // Handle the case where the email doesn't contain @
+//            return email;
+//        }
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,25 +101,37 @@ public class Activity_Individual_register extends AppCompatActivity {
                     alert.setVisibility(View.VISIBLE);
                     return;
                 }
-                String unique_username = extractUsername(email);
+//                String unique_username = extractUsername(email);
                 register_helper reg = new register_helper(name, email, password);
                 userdb = FirebaseDatabase.getInstance("https://ev-hub-acebb-default-rtdb.firebaseio.com/");
                 user_ref = userdb.getReference("User_Data");
-                user_ref.child(unique_username).setValue(reg);
+//                user_ref.child(unique_username).setValue(reg);
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     FirebaseUser user = mAuth.getCurrentUser();
-                                    UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                                            .setDisplayName(name)
-                                            .build();
-                                    user.updateProfile(profileUpdates);
-                                    Toast.makeText(Activity_Individual_register.this, "Account created successfully", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(Activity_Individual_register.this, Activity_Individual_login.class);
-                                    startActivity(intent);
-                                    finish();
+                                    if (user != null) {
+                                        // Get user ID
+                                        String userId = user.getUid();
+
+                                        // Push user details to Firebase Realtime Database
+                                        userdb = FirebaseDatabase.getInstance("https://ev-hub-acebb-default-rtdb.firebaseio.com/");
+                                        user_ref = userdb.getReference("User_Data");
+                                        user_ref.child(userId).setValue(reg);
+
+                                        // Update user profile with display name
+                                        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                                .setDisplayName(name)
+                                                .build();
+                                        user.updateProfile(profileUpdates);
+
+                                        Toast.makeText(Activity_Individual_register.this, "Account created successfully", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(Activity_Individual_register.this, Activity_Individual_login.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }
                                 } else {
                                     // If sign in fails, display a message to the user.
                                     Toast.makeText(Activity_Individual_register.this, "Authentication failed.", Toast.LENGTH_SHORT).show();

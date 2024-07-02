@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity_Transactions_page"
+    android:background="#E4E4E4"
+    >
+    <include
+        layout="@layout/nav_bar"
+        android:id="@+id/nav_bar"
+        />
+    <ImageButton
+        android:id="@+id/backicon_transaction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/back_icon_green"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/transactions_text"
+        app:layout_constraintBottom_toBottomOf="@id/transactions_text"
+        android:scaleX="1.3"
+        android:scaleY="1.3"
+        android:layout_marginLeft="15dp"
+        />
+    <TextView
+        android:id="@+id/transactions_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Transactions"
+        android:textSize="24sp"
+        android:fontFamily="@font/cabin_bold"
+        android:textColor="@color/green"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/backicon_transaction"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="15dp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

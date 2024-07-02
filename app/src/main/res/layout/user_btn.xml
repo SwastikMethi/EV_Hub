@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/button_05">
     <ImageView
-        android:id="@+id/user_button"
+        android:id="@+id/user_button_01"
         android:layout_width="27dp"
         android:layout_height="27dp"
         android:src="@drawable/nav_user"
@@ -26,7 +26,7 @@
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/user_button"
+        app:layout_constraintLeft_toRightOf="@id/user_button_01"
         app:layout_constraintRight_toRightOf="parent"
         android:textSize="15dp"
         android:layout_marginRight="10dp"

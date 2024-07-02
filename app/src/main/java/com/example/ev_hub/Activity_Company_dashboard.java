@@ -22,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Activity_Company_dashboard extends AppCompatActivity {
     Button logout, requests, accept_request, reject_request;
-    TextView company_name, request_station_title, request_time;
+    TextView company_name, request_station_title, request_time, customer_name;
     FirebaseDatabase database;
     DatabaseReference reservationsRef;
     View requestCard;
@@ -40,6 +40,7 @@ public class Activity_Company_dashboard extends AppCompatActivity {
         });
         database = FirebaseDatabase.getInstance("https://ev-hub-acebb-default-rtdb.firebaseio.com/");
         reservationsRef = database.getReference("Reservations");
+
         company_name = findViewById(R.id.company_name_title);
         logout = findViewById(R.id.company_logout);
         requests = findViewById(R.id.get_requests);
@@ -48,6 +49,7 @@ public class Activity_Company_dashboard extends AppCompatActivity {
         request_time = findViewById(R.id.requests_time);
         accept_request = findViewById(R.id.accept);
         reject_request = findViewById(R.id.reject);
+        customer_name = findViewById(R.id.requests_user_name);
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +84,23 @@ public class Activity_Company_dashboard extends AppCompatActivity {
                     String startTime = snapshot.child("startTime").getValue(String.class);
                     String endTime = snapshot.child("endTime").getValue(String.class);
                     String status = snapshot.child("status").getValue(String.class);
+                    String customerId = snapshot.child("userId").getValue(String.class);
+
+                    // Fetch the customer name using the customer ID
+                    FirebaseDatabase.getInstance("https://ev-hub-acebb-default-rtdb.firebaseio.com/")
+                            .getReference("User_Data").child(customerId).child("name")
+                            .addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    String customerName = dataSnapshot.getValue(String.class);
+                                    customer_name.setText("Customer: " + customerName);
+                                }
+
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+                                    Toast.makeText(Activity_Company_dashboard.this, "Failed to fetch customer name: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            });
 
                     // Display the first request found and break the loop
                     if (status.equals("pending")) {

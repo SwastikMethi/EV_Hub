@@ -17,6 +17,30 @@
         android:theme="@style/Theme.Ev_Hub"
         tools:targetApi="31">
         <activity
+            android:name=".Activity_More_SubcriptionsPage"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_Transactions_page"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_My_Accountpage"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_Routepage"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_Select_EV"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_Register_Car"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_WalletPage"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_ProfilePage"
+            android:exported="false" />
+        <activity
             android:name=".Activity_Book_docks"
             android:exported="false" />
         <activity
